@@ -1,5 +1,0 @@
-use_gpu = true
-
-[dataset]
-name = "pseudo"
-path = "data/images_by_py/"
