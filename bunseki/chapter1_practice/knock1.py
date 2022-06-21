@@ -18,5 +18,5 @@ data = pd.read_csv('~/study/Python/python演習/分析編/'\
 print(data.head())
 print(len(data))
 
-
+# aaaaaaaaaaa
 
