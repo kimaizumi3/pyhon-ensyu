@@ -1,7 +1,7 @@
 import pandas as pd
 
 # csv 読み込み
-data = pd.read_csv('~/study/Python/python演習/bunseki/'\
+data = pd.read_csv('~/study/python/python演習/bunseki/'\
                     '100knock-process-visualization/chapter-1/data/22_shizuoka_all_20210331.csv'\
                     , encoding='shift-jis')
 
@@ -11,7 +11,7 @@ print(data.head())
 print(len(data))
 
 # headerをつけて読み込み
-data = pd.read_csv('~/study/Python/python演習/bunseki/'\
+data = pd.read_csv('~/study/python/python演習/bunseki/'\
                     '100knock-process-visualization/chapter-1/data/22_shizuoka_all_20210331.csv'\
                     , encoding='shift-jis', header=None)
 
