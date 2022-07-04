@@ -1,7 +1,6 @@
 import os
 from pprint import pprint
 from glob import glob
-from tkinter import W
 import pandas as pd
 
 # headerをつけて読み込み
@@ -14,8 +13,8 @@ os.listdir('/home/kimaizumi/study/python/python演習/bunseki/100knock-process-v
 # pprint(type(os.listdir('/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/chapter-1/data')))
 
 mst = pd.read_csv('~/study/python/python演習/bunseki/'\
-                    '100knock-process-visualization/chapter-1/data/mst_column_name.txt'\
-                    , encoding='shift-jis', sep='\t')
+                    '100knock-process-visualization/chapter-1/data/mst_column_name.txt',\
+                    encoding='shift-jis', sep='\t')
 
 # columun_name_enの項目だけ抽出
 columns = mst.column_name_en.values
@@ -23,7 +22,6 @@ columns = mst.column_name_en.values
 # pprint(columns)
 
 # dataのヘッダ行をcolumnsに設定
-
 # data = '/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/chapter-1/data'
 diff_data = '/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/chapter-1/data/diff*.csv'
 
@@ -74,3 +72,65 @@ pprint(data.describe())
 
 # 欠損値の集計
 data.isna().sum()
+
+pprint('------kcnock7-------')
+
+mst_process_kbn = pd.read_csv('/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/'\
+                              'chapter-1/data/mst_process_kbn.csv' , dtype=object)
+
+
+# 追加（processがint64だったため変換）
+# mst_process_kbn['process'] = mst_process_kbn['process'].astype(object)
+
+pprint(mst_process_kbn)
+
+# pprint(data.dtypes)
+# print("------------------")
+# pprint(mst_process_kbn.dtypes)
+
+# processをマージ
+data = data.merge(mst_process_kbn, on='process', how='left')
+pprint(len(data.columns))
+pprint(data.head(3))
+
+# mst_correct_kbnをマージ
+mst_correct_kbn = pd.read_csv('/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/'\
+                              'chapter-1/data/mst_correct_kbn.csv', encoding='shift-jis', dtype=object)
+
+pprint(mst_correct_kbn)
+
+data = data.merge(mst_correct_kbn, on='correct', how='left')
+pprint(len(data.columns))
+pprint(data.head(3))
+
+# mst_corp_kindをマージ
+mst_corp_kind = pd.read_csv('/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/'\
+                              'chapter-1/data/mst_corp_kind.csv', dtype=object)
+
+pprint(mst_corp_kind)
+
+data = data.merge(mst_corp_kind, on='kind', how='left')
+pprint(len(data.columns))
+pprint(data.head(3))
+
+# mst_latestをマージ
+mst_latest = pd.read_csv('/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/'\
+                              'chapter-1/data/mst_latest.csv', dtype=object)
+
+pprint(mst_latest)
+
+data = data.merge(mst_latest, on='latest', how='left')
+pprint(len(data.columns))
+pprint(data.head(3))
+
+# mst_hihyojiをマージ
+mst_hihyoji = pd.read_csv('/home/kimaizumi/study/python/python演習/bunseki/100knock-process-visualization/'\
+                              'chapter-1/data/mst_hihyoji.csv', dtype=object)
+
+pprint(mst_hihyoji)
+
+data = data.merge(mst_hihyoji, on='hihyoji', how='left')
+pprint(len(data.columns))
+pprint(data.head(3))
+
+pprint("-----knock8-----")
