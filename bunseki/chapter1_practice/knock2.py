@@ -1,4 +1,5 @@
 import pandas as pd
+from pprint import pprint
 
 # headerをつけて読み込み
 data = pd.read_csv('~/study/python/python演習/bunseki/'\
@@ -11,6 +12,6 @@ print(len(data.columns))
 print(data)
 '''
 
-print(data.head())
-print(data.dtypes)
+pprint(data.head())
+pprint(data.dtypes)
 

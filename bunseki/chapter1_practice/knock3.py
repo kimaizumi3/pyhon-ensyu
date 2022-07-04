@@ -1,4 +1,5 @@
 import pandas as pd
+from pprint import pprint
 
 # headerをつけて読み込み
 data = pd.read_csv('~/study/python/python演習/bunseki/'\
@@ -9,8 +10,8 @@ mst = pd.read_csv('~/study/python/python演習/bunseki/'\
                     '100knock-process-visualization/chapter-1/data/mst_column_name.txt'\
                     , encoding='shift-jis', sep='\t')
 
-print(mst.head)
-print(len(mst))
+pprint(mst.head)
+pprint(len(mst))
 
-print(len(mst) == len(data.columns))
+pprint(len(mst) == len(data.columns))
 

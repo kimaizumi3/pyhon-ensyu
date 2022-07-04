@@ -1,4 +1,5 @@
 import pandas as pd
+from pprint import pprint
 
 # headerをつけて読み込み
 data = pd.read_csv('~/study/python/python演習/bunseki/'\
@@ -18,4 +19,4 @@ columns = mst.column_name_en.values
 # dataのヘッダ行をcolumnsに設定
 data.columns = columns
 
-print(data.head())
+pprint(data.head())

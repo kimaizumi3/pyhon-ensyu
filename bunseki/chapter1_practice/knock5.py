@@ -1,4 +1,5 @@
 import pandas as pd
+from pprint import pprint
 
 # headerをつけて読み込み
 data = pd.read_csv('~/study/python/python演習/bunseki/'\
@@ -12,12 +13,12 @@ mst = pd.read_csv('~/study/python/python演習/bunseki/'\
 # columun_name_enの項目だけ抽出
 columns = mst.column_name_en.values
 
-# print(columns)
+# pprint(columns)
 
 # dataのヘッダ行をcolumnsに設定
 data.columns = columns
 
-print(data.describe())
+pprint(data.describe())
 
-print(data.isna())
-print(data.isna().sum())
+pprint(data.isna())
+pprint(data.isna().sum())
