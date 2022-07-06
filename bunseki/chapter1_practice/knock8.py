@@ -134,3 +134,22 @@ pprint(len(data.columns))
 pprint(data.head(3))
 
 pprint("-----knock8-----")
+
+pprint(data[['prefectureName', 'cityName', 'streetNumber']].isna().sum())
+
+data['address'] = data['prefectureName'] + data['cityName'] + data['streetNumber']
+pprint(len(data.columns))
+pprint(data.head(3))
+
+pprint(data.loc[data['streetNumber'].isna()].head(3))
+
+data['address'].loc[data['streetNumber'].isna()] = data['prefectureName'] + data['cityName']
+
+pprint(data['address'].isna().sum())
+pprint(data.loc[data['streetNumber'].isna()].head(3))
+
+pprint(data.head(3))
+
+data['postConde_head'] = data['postCode'].str[:3]
+pprint(len(data.columns))
+pprint(data.head(3))
